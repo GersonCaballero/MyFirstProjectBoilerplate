@@ -4,6 +4,7 @@ using Abp.DynamicEntityParameters;
 using Abp.Zero.EntityFramework;
 using MyFirstProjectBoilerPlate.Authorization.Roles;
 using MyFirstProjectBoilerPlate.Authorization.Users;
+using MyFirstProjectBoilerPlate.Employees;
 using MyFirstProjectBoilerPlate.MultiTenancy;
 
 namespace MyFirstProjectBoilerPlate.EntityFramework
@@ -11,6 +12,8 @@ namespace MyFirstProjectBoilerPlate.EntityFramework
     public class MyFirstProjectBoilerPlateDbContext : AbpZeroDbContext<Tenant, Role, User>
     {
         //TODO: Define an IDbSet for your Entities...
+        public virtual IDbSet<Department> Departments { get; set; }
+        public virtual IDbSet<Employee> Employees { get; set; }
 
         /* NOTE: 
          *   Setting "Default" to base class helps us when working migration commands on Package Manager Console.
